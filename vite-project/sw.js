@@ -17,30 +17,27 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-    urls: ['/index.html', '/', '/nome.html', '/senha.html'],
+    urls: ['/index.html', '/'],
     strategy: pageCache
 });
 
-registerRoute(({ request }) => request.mode === 'navigate', pageCache)
+registerRoute(({ request }) => request.mode === 'navigate', pageCache);
+
 registerRoute(
     ({ request }) => ['style', 'script', 'worker']
-    .includes(request.destination),
+        .includes(request.destination),
     new StaleWhileRevalidate({
         cacheName: 'asset-cache',
         plugins: [
             new CacheableResponsePlugin({
-                statuses: [0, 200] 
+                statuses: [0, 200]
             })
         ]
     })
-)
-
-offlineFallback({
-    pageFallback: '/offline.html'
-})
+);
 
 const imageRoute = new Route(({ request }) => {
-    return request.destination === 'image'
+    return request.destination === 'image';
 }, new CacheFirst({
     cacheName: 'images',
     plugins: [
@@ -48,5 +45,10 @@ const imageRoute = new Route(({ request }) => {
             maxAgeSeconds: 60 * 60 * 24 * 30
         })
     ]
-}))
-registerRoute(imageRoute)
+}));
+
+registerRoute(imageRoute);
+
+offlineFallback({
+    pageFallback: '/offline.html'
+});

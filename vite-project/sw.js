@@ -17,7 +17,7 @@ const pageCache = new CacheFirst({
 });
 
 warmStrategyCache({
-    urls: ['/index.html', '/', '/nome.html', '/senha.html'],
+    urls: ['/index.html', '/'],
     strategy: pageCache
 });
 

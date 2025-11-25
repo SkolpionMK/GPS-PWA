@@ -1,109 +1,77 @@
-/* Padronização visual compatível com nome.css (mantendo classes originais usadas em index.html) */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
+    background-color: rgb(174, 174, 174);
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
-    padding: 0;
-    max-width: 960px;
-    width: 100%;
-    overflow: hidden;
-}
-
-.cabecalho {
-    padding: 24px 32px;
-    text-align: center;
+    box-sizing: border-box;
+    max-width: 100%;
+    width: 960px;
+    margin: 0 auto;
+    padding: 1em;
 }
 
 .titulo {
-    color: #2c3e50;
-    font-size: 28px;
-    margin-bottom: 8px;
-    font-weight: 700;
+    text-align: center;
+    color: rgb(73, 71, 158);
+    font-size: 2em;
 }
 
 .conteudo {
-    padding: 24px 32px 32px 32px;
+    background-color: rgb(169, 164, 164);
+    margin: 1.5em 0;
+    box-shadow: 3px 3px 3px rgb(153, 154, 225, 0.3);
+    text-align: center;
 }
 
-.formulario h2 {
-    color: #34495e;
-    margin-bottom: 12px;
-}
-
-.mapouter, .gmap_canvas {
-    width: 100%;
-    max-height: 400px;
-    overflow: hidden;
-    border-radius: 8px;
-    margin-bottom: 16px;
-}
-
-input {
-    padding: 10px 12px;
-    border-radius: 8px;
-    border: 2px solid #ecf0f1;
-    margin: 6px;
-    min-width: 160px;
-}
-
-.botao {
-    flex: 1;
-    padding: 12px 18px;
-    border: none;
-    border-radius: 8px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-transform: uppercase;
-    letter-spacing: 0.4px;
-    display: inline-block;
-    color: white;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.25);
-}
-
-.botao:hover {
-    transform: translateY(-2px);
-}
-
-.botao:active {
-    transform: scale(0.98);
-}
-
-.btn-link, .conteudo a {
-    display: inline-block;
-    color: #667eea;
-    text-decoration: none;
-    font-weight: 600;
-    margin-left: 8px;
+.conteudoLocalizacao {
+    font-size: 1.5em;
 }
 
 .rodape {
     text-align: center;
-    padding: 12px 0;
-    color: #7f8c8d;
+    border-radius: 5%;
 }
 
-@media (max-width: 600px) {
-    .container { padding: 0; }
-    .gmap_canvas iframe { height: 220px; }
-    input { min-width: 120px; }
-    .titulo { font-size: 20px; }
+.cabecalhoConteudo {
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.botao {
+    background-color: rgb(69, 71, 163, 0.3);
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    width: 100%;
+    cursor: pointer;
+    transition: scale 0.3s, box-shadow 0.3s, background-color 0.5s;
+}
+
+.botao:hover {
+    scale: 1.05;
+    box-shadow: 3px 3px 3px 5px rgb(73, 71, 158, 0.35);
+    background-color: rgba(56, 13, 124, 0.7);
+}
+
+input {
+    border-radius: 30px;
+    font-family: fantasy;
+    color: #0c9ce3fe;
+    text-align: center;
+    margin: 20px;
+    height: 30px;
+    border: #0c9ce3fe 2px solid;
+    transition: color 0.4s, border 0.4s;
+}
+
+input:hover {
+    border: #076c9efe 2px solid;
+    color: #076c9efe;
 }

@@ -1,0 +1,71 @@
+import { openDB } from "idb"
+
+let db;
+const nome = document.getElementById('nomeCompleto')
+const data = document.getElementById('dataNascimento')
+const latitude = document.getElementById('latitude')
+const longitude = document.getElementById('longitude')
+const cadastrar = document.getElementById('cadastrar')
+const listar = document.getElementById('listar')
+
+async function createDB() {
+    try {
+        db = await openDB('nascidos', 1, {
+            upgrade(db, oldVersion, newVersion, transaction) {
+                switch (oldVersion) {
+                    case 0:
+                    case 1:
+                        const store = db.createObjectStore('pessoas', {
+                            keyPath: 'nome'
+                        });
+                        store.createIndex('id', 'id');
+                        showResult('Banco de dados criado!');
+                    }
+                }
+        });
+        showResult('Banco de dados aberto.');
+    } catch (e) {
+        showResult('Erro ao criar o banco de dados: ' + e.message);
+    }
+}
+
+window.addEventListener('DOMContentLoaded', async event => {
+    createDB();
+});
+
+async function addData() {
+    const tx = await db.transaction('pessoas', 'readwrite');
+    const store = tx.objectStore('pessoas');
+    store.add({nome, dataNasc: data, latitude, longitude});
+    await tx.done;
+}
+
+async function getData() {
+    if(db === undefined) {
+        showResult('O banco de dados está fechado!');
+        return;
+    }
+
+    const tx = db.transaction('pessoas', 'readonly');
+    const store = tx.objectStore('pessoas');
+    const allData = await store.getAll();
+    if(allData) {
+        showResult("Nascidos cadastrados: " + JSON.stringify(allData));
+    } else {
+        showResult("Nenhum nascido cadastrado.");
+    }
+}
+
+cadastrar.addEventListener('click', async () => {
+    await addData();
+    showResult('Nascido cadastrado com sucesso!');
+});
+
+listar.addEventListener('click', async () => {
+    await getData();
+});
+
+const showResult = (message) => {
+    const result = document.getElementById('result');
+    result.value = message;
+}

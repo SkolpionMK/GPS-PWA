@@ -55,3 +55,4 @@ capturarLocalizacao.addEventListener('click', () => {
 })
 
 encontrarLocalizacao.addEventListener('click', () => buscar())
+

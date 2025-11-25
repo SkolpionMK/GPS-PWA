@@ -3,21 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>PWA Geolocation - Capturando a Localização</title>
+    <title>Cadastro de nascimento</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="apple-touch-icon" href="">
     <link rel="manifest" href="manifest.json">
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="theme-color" content="white">
+    <script type="module" src="js/db.js"></script>
   </head>
   <body>
     <section class="container">
       <header class="cabecalho">
-        <h1 class="titulo">PWA - Geolocation</h1>
+        <h1 class="titulo">Cadastro de nascimento</h1>
       </header>
       <div class="conteudo">
         <header class="cabecalhoConteudo">
-          <h2>Geolocalização</h2>
+          <h2>Localização</h2>
         </header>
         <div class="conteudoLocalizacao">
           <p>
@@ -34,9 +35,26 @@
             <button class="botao" id="buscar">Buscar Coordenadas</button>
           </div>
         </div>
+        <div>
+          <h2>Data de Nascimento:</h2>
+          <label for="dataNascimento">Insira a data de nascimento</label>
+          <input type="date" id="dataNascimento"/>
+        </div>
+        <div>
+          <h2>Insira o nome completo do nascido</h2>
+          <label for="nomeCompleto">Nome Completo:</label>
+          <input type="text" id="nomeCompleto" placeholder="Nome Completo"/>
+        </div>
+          <button id="cadastrar">Cadastrar</button>
+          <button id="listar">Listar nascidos</button>
+          <p id="result"></p>
       </div>
       <footer class="rodape">
-        Progressive Web Application - GeoLocation
+        <p>Nenhum direito reservado.</p>
+        <p>Curiosidades sobre as datas de nascimento do mundo:</p>
+        <p>1- Não existe ninguém nascido em 30/02.</p>
+        <p>2- A maior parte da população mundial nasceu entre 01/01 e 31/12.</p>
+        <p>3- Provavelmente quem nasceu entre o periodo jurássico e triassico não está mais entre nós :(.</p>
       </footer>
     </section>
     <script src="js/main.js"></script>

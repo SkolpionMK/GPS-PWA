@@ -36,7 +36,7 @@ window.addEventListener('DOMContentLoaded', async event => {
 async function addData() {
     const tx = await db.transaction('pessoas', 'readwrite');
     const store = tx.objectStore('pessoas');
-    store.add({nome, dataNasc: data, latitude, longitude});
+    store.add({nome: nome.value, dataNasc: data.value, latitude: latitude.innerHTML, longitude: longitude.innerHTML});
     await tx.done;
 }
 
@@ -67,5 +67,5 @@ listar.addEventListener('click', async () => {
 
 const showResult = (message) => {
     const result = document.getElementById('result');
-    result.value = message;
+    result.innerHTML = message;
 }

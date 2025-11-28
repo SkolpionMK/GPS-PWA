@@ -7,6 +7,7 @@ const latitude = document.getElementById('latitude')
 const longitude = document.getElementById('longitude')
 const cadastrar = document.getElementById('cadastrar')
 const listar = document.getElementById('listar')
+const deletar = document.getElementById('deletar'
 
 async function createDB() {
     try {
@@ -45,7 +46,6 @@ async function getData() {
         showResult('O banco de dados está fechado!');
         return;
     }
-
     const tx = db.transaction('pessoas', 'readonly');
     const store = tx.objectStore('pessoas');
     const allData = await store.getAll();
@@ -54,6 +54,13 @@ async function getData() {
     } else {
         showResult("Nenhum nascido cadastrado.");
     }
+}
+
+async function deleteData() {
+    const tx = db.transaction('pessoas', 'readwrite');
+    const store = tx.objectStore('pessoas');
+    store.delete(nome.value);
+    await tx.done;
 }
 
 cadastrar.addEventListener('click', async () => {

@@ -7,7 +7,7 @@ const latitude = document.getElementById('latitude')
 const longitude = document.getElementById('longitude')
 const cadastrar = document.getElementById('cadastrar')
 const listar = document.getElementById('listar')
-const deletar = document.getElementById('deletar'
+const deletar = document.getElementById('deletar')
 
 async function createDB() {
     try {

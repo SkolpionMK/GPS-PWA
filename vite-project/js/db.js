@@ -73,6 +73,10 @@ listar.addEventListener('click', async () => {
     await getData();
 });
 
+deletar.addEventListener('click', async () => {
+    await deleteData();
+}
+
 const showResult = (message) => {
     const result = document.getElementById('result');
     result.innerHTML = message;

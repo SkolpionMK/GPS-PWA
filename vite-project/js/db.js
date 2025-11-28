@@ -75,7 +75,7 @@ listar.addEventListener('click', async () => {
 
 deletar.addEventListener('click', async () => {
     await deleteData();
-}
+});
 
 const showResult = (message) => {
     const result = document.getElementById('result');

@@ -61,6 +61,7 @@ async function deleteData() {
     const store = tx.objectStore('pessoas');
     store.delete(nome.value);
     await tx.done;
+    showResult("Usuário deletado com sucesso!");
 }
 
 cadastrar.addEventListener('click', async () => {
